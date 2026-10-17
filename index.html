@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f2a1a">
+<title>Sri Garuda Vihar | Pure Veg Restaurant in Tirupati</title>
+<meta name="description" content="Sri Garuda Vihar, a pure vegetarian restaurant near Tirupati Railway Station. South Indian breakfast, meals, rice, Chinese dishes and desserts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0f2a1a;--g2:#1b4a2e;--s:#ff8a1f;--gold:#f6c653;--cream:#fff6e4;--ink:#1d2a20;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+section{padding:100px 7%}
+.wrap{max-width:1200px;margin:auto}
+h2{font-family:var(--serif);font-size:clamp(34px,5vw,60px);line-height:1.1;color:var(--g)}
+h2 i{color:var(--s)}
+.tag{display:inline-block;color:var(--s);font-weight:700;letter-spacing:.2em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:9999;background:var(--g);display:grid;place-items:center;transition:transform .9s cubic-bezier(.7,0,.2,1)}
+#pre.go{transform:translateY(-100%)}
+.pre-in{text-align:center;color:var(--cream)}
+.pre-mark{width:110px;height:110px;margin:auto;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:34px;color:var(--gold);animation:spin-in 1.4s ease both}
+.pre-in p{margin-top:18px;letter-spacing:.3em;font-size:12px;animation:up 1s .5s both}
+@keyframes spin-in{from{transform:rotate(-200deg) scale(.2);opacity:0}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+
+/* progress, cursor glow */
+#bar{position:fixed;top:0;left:0;height:4px;width:0;z-index:999;background:linear-gradient(90deg,var(--s),var(--gold))}
+#glow{position:fixed;width:300px;height:300px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(255,138,31,.16),transparent 65%);transform:translate(-50%,-50%);transition:opacity .3s}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 7%;transition:.4s}
+nav.sc{background:rgba(15,42,26,.88);backdrop-filter:blur(16px);padding:10px 7%}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--serif);font-weight:800;font-size:19px}
+.logo b{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--g);display:grid;place-items:center;font-size:14px}
+.links{display:flex;gap:30px;align-items:center}
+.links a{color:#fff;font-size:14px;font-weight:500;position:relative}
+.links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--gold);transition:.3s}
+.links a:hover::after{width:100%}
+.cta,.btn{display:inline-block;padding:14px 28px;border-radius:999px;background:linear-gradient(135deg,var(--s),#ffb347);color:#fff!important;font-weight:700;font-size:14px;box-shadow:0 10px 30px rgba(255,138,31,.4);transition:.3s}
+.cta:hover,.btn:hover{transform:translateY(-3px) scale(1.04)}
+.btn.o{background:transparent;border:1.5px solid rgba(255,255,255,.7);box-shadow:none}
+#burger{display:none;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:120px;color:#fff;overflow:hidden;background:url("images/hero2.jpg") center/cover;animation:zoom 24s ease-in-out infinite alternate}
+@keyframes zoom{to{background-size:118%}}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,24,14,.95),rgba(8,24,14,.6) 60%,rgba(8,24,14,.3))}
+#sparks{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;width:100%}
+.hero h1{font-family:var(--serif);font-size:clamp(46px,7vw,98px);line-height:1.02;font-weight:800;margin:18px 0 24px}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.hero h1 .w span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--gold),var(--s),var(--gold));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 4s linear infinite}
+@keyframes rise{to{transform:none}}
+@keyframes shim{to{background-position:200%}}
+.hero p.d{max-width:520px;color:rgba(255,255,255,.88);font-size:18px;margin-bottom:34px;opacity:0;animation:up 1s 1.4s forwards}
+.acts{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up 1s 1.7s forwards}
+.plate{position:relative;aspect-ratio:1;max-width:420px;margin-left:auto;transition:transform .2s}
+.plate .ph{position:absolute;inset:8%;border-radius:50%;overflow:hidden;border:6px solid var(--gold);box-shadow:0 40px 90px rgba(0,0,0,.55);animation:float 6s ease-in-out infinite}
+.plate svg{position:absolute;inset:0;width:100%;height:100%;animation:rot 22s linear infinite}
+.plate text{fill:var(--gold);font-size:11.5px;letter-spacing:4px;font-weight:700}
+@keyframes rot{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-18px)}}
+.chip{position:absolute;background:var(--cream);color:var(--g);padding:10px 16px;border-radius:14px;font-weight:700;font-size:13px;box-shadow:0 14px 34px rgba(0,0,0,.35);animation:float 5s ease-in-out infinite}
+.scroll{position:absolute;bottom:26px;left:50%;width:24px;height:40px;border:2px solid #fff;border-radius:14px;opacity:.7}
+.scroll::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:sd 1.6s infinite}
+@keyframes sd{to{transform:translateY(14px);opacity:0}}
+
+/* marquee */
+.mq{background:var(--s);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--serif);font-style:italic;font-size:22px;transform:rotate(-1.2deg);margin:-20px -20px 0;position:relative;z-index:3}
+.mq div{display:inline-flex;gap:50px;animation:mq 26s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(50px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;text-align:center}
+.stat{padding:30px 10px;border-radius:24px;background:#fff;box-shadow:0 20px 50px rgba(15,42,26,.08)}
+.stat b{font-family:var(--serif);font-size:clamp(34px,4vw,52px);color:var(--s);display:block}
+.stat span{font-size:13px;color:#667}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about .im{height:auto!important;width:fit-content;max-width:100%;justify-self:center;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(15,42,26,.25)}
+.about .im img{width:auto!important;height:auto!important;max-width:100%;max-height:400px;object-fit:contain}
+.about p{margin:18px 0;color:#53605a}
+
+/* menu */
+.menu{background:var(--g);color:#fff}
+.menu h2{color:#fff}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:34px 0}
+.tabs button{padding:12px 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;font:600 14px var(--sans);cursor:pointer;transition:.3s}
+.tabs button.on,.tabs button:hover{background:var(--s);border-color:var(--s)}
+.mgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.mimg{aspect-ratio:4/3;height:auto;border-radius:24px;overflow:hidden;position:sticky;top:100px}
+.mimg img{animation:zin 1s both}
+@keyframes zin{from{transform:scale(1.25);opacity:0}}
+.dish{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 20px;margin-bottom:12px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);opacity:0;animation:slide .6s forwards;transition:.3s}
+.dish:hover{background:rgba(255,138,31,.18);transform:translateX(10px);border-color:var(--s)}
+.dish h3{font-family:var(--serif);font-size:19px;display:flex;align-items:center;gap:10px}
+.dish p{font-size:13px;color:#b9c9be}
+.vb{width:15px;height:15px;border:2px solid #3ddc65;border-radius:3px;display:grid;place-items:center;flex:none}
+.vb::after{content:"";width:6px;height:6px;border-radius:50%;background:#3ddc65}
+.pr{padding:6px 14px;border-radius:999px;background:var(--gold);color:var(--g);font-size:12px;font-weight:700;white-space:nowrap}
+@keyframes slide{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+
+.srch{width:100%;max-width:520px;margin-top:30px;padding:15px 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font:500 15px var(--sans);outline:0;transition:.3s}
+.srch:focus{border-color:var(--s);background:rgba(255,255,255,.14)}
+.srch::placeholder{color:#9fb3a5}
+.cnt{font-size:13px;color:#9fb3a5;margin:-14px 0 22px}
+.pop{font:700 10px var(--sans);letter-spacing:.08em;text-transform:uppercase;background:var(--s);color:#fff;padding:3px 9px;border-radius:999px}
+.empty{padding:30px;text-align:center;color:#b9c9be}
+/* combo */
+.combo{text-align:center;background:linear-gradient(135deg,var(--s),#ffb347);color:#fff;position:relative;overflow:hidden}
+.combo .big{font-family:var(--serif);font-size:clamp(110px,22vw,260px);font-weight:800;line-height:1;text-shadow:0 20px 60px rgba(0,0,0,.25);animation:pul 2.4s ease-in-out infinite}
+@keyframes pul{50%{transform:scale(1.07) rotate(-2deg)}}
+.combo p{max-width:620px;margin:10px auto 28px;font-size:18px}
+.combo .btn{background:var(--g);box-shadow:0 14px 34px rgba(0,0,0,.3)}
+
+/* gallery accordion */
+.gal{display:flex;gap:14px;height:460px;margin-top:40px}
+.gal div{flex:1;border-radius:26px;overflow:hidden;transition:flex .8s cubic-bezier(.2,.7,.2,1)}
+.gal div:hover{flex:4}
+.gal img{transition:transform .8s}
+.gal div:hover img{transform:scale(1.08)}
+.note{font-size:12px;color:#889;margin-top:14px;text-align:center}
+
+/* reviews */
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.rc{background:#fff;padding:34px 28px;border-radius:24px;box-shadow:0 20px 50px rgba(15,42,26,.08);transition:.3s;transform-style:preserve-3d}
+.rc q{font-family:var(--serif);font-size:19px;display:block;quotes:none}
+.rc:before{content:"“";font-family:var(--serif);font-size:70px;line-height:.6;color:var(--s);display:block;margin-bottom:10px}
+.stars{color:var(--gold);margin-top:14px;letter-spacing:3px}
+
+/* contact */
+.contact{background:var(--g);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact h2{color:#fff}
+.ci{display:flex;gap:16px;margin-top:22px}
+.ci b{width:46px;height:46px;border-radius:50%;background:var(--s);display:grid;place-items:center;flex:none;font-size:20px}
+.ci small{color:#b9c9be}
+.cimg{height:480px;border-radius:24px 160px 24px 24px;overflow:hidden}
+
+footer{background:#081a10;color:#9fb3a5;text-align:center;padding:30px;font-size:13px}
+.wa{position:fixed;right:20px;bottom:20px;z-index:90;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:28px;animation:ring 2.4s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 24px rgba(37,211,102,0)}}
+
+@media(max-width:860px){
+section{padding:70px 6%}
+.links{position:fixed;inset:0;background:var(--g);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.5s}
+.links.open{transform:none}.links a{font-size:22px}
+#burger{display:block;z-index:101}
+.hero .wrap,.about,.mgrid,.contact{grid-template-columns:1fr}
+.plate{max-width:300px;margin:20px auto 0}
+.stats{grid-template-columns:1fr 1fr}.rev{grid-template-columns:1fr}
+.mimg{position:static;height:auto}
+.gal{height:auto;flex-direction:column}.gal div{height:130px;flex:none}.gal div:hover{height:260px;flex:none}
+.about .im{height:340px}.cimg{height:320px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(max-width:860px){
+  .hero{
+    background-size:cover!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+    animation:none!important;
+    min-height:92vh;
+    padding:110px 6% 90px;
+  }
+  .hero .wrap{padding:0}
+  .hero h1{font-size:clamp(40px,11.5vw,58px);line-height:1.08}
+  .hero p.d{font-size:16px;margin-bottom:26px}
+  .acts{flex-direction:column;align-items:stretch}
+  .acts .btn{text-align:center}
+  .plate,.scroll{display:none}
+}
+.mimg{aspect-ratio:auto!important;height:auto!important;background:rgba(255,255,255,.05)}
+.mimg img{width:100%!important;height:auto!important;max-height:540px;object-fit:contain!important}
+.dish{padding:14px 18px;margin-bottom:9px}
+.morebtn{display:block;width:100%;margin-top:6px;padding:14px;border-radius:999px;border:1.5px solid var(--s);background:transparent;color:#fff;font:700 14px var(--sans);cursor:pointer;transition:.3s}
+.morebtn:hover{background:var(--s)}
+@media(hover:none){#glow{opacity:0}}
+.rip{position:fixed;z-index:1;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2px solid var(--gold);pointer-events:none;animation:rip .8s ease-out forwards}
+@keyframes rip{to{transform:scale(8);opacity:0}}
+</style>
+</head>
+<body>
+
+<div id="pre"><div class="pre-in"><div class="pre-mark">SGV</div><p>SRI GARUDA VIHAR</p></div></div>
+<div id="bar"></div><div id="glow"></div>
+
+<nav id="nav">
+  <a class="logo" href="#home"><b>SGV</b>Sri Garuda Vihar</a>
+  <div class="links" id="links">
+    <a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">Our Story</a><a href="#gallery">Gallery</a><a href="#contact">Find Us</a>
+    <a class="cta" href="tel:+918790245669">Call Now</a>
+  </div>
+  <button id="burger" aria-label="Menu">☰</button>
+</nav>
+
+<header class="hero" id="home">
+  <canvas id="sparks"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="tag" style="color:var(--gold)">✳ Pure vegetarian · Tirupati</span>
+      <h1 id="h1">Taste the <em>tradition,</em> love every bite.</h1>
+      <p class="d">From crispy dosas and soft idlis to full meals and sweet desserts, a warm South Indian welcome near Tirupati Railway Station.</p>
+      <div class="acts"><a class="btn" href="#menu">Explore Menu ↗</a><a class="btn o" href="#contact">Visit Us</a></div>
+    </div>
+    <div class="plate" id="plate">
+      <svg viewBox="0 0 200 200"><defs><path id="c" d="M100,100 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/></defs><text><textPath href="#c">PURE VEG • SOUTH INDIAN • PURE VEG • FAMILY DINING •</textPath></text></svg>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=85" alt="Vegetarian thali"></div>
+      <span class="chip" style="top:6%;right:-4%">🌿 100% Veg</span>
+      <span class="chip" style="bottom:10%;left:-6%;animation-delay:-2s">☀️ Combo ₹99</span>
+    </div>
+  </div>
+  <div class="scroll"></div>
+</header>
+
+<div class="mq"><div id="mq"></div></div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about rv">
+      <div class="im"><img src="images/our.jpg" alt="Sri Garuda Vihar interior" onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1000&q=85'"></div>
+      <div>
+        <span class="tag">Our story</span>
+        <h2>A little comfort in every <i>meal.</i></h2>
+        <p>Looking for a vegetarian meal in Tirupati? Sri Garuda Vihar welcomes you with familiar favourites, from South Indian breakfast to rice dishes, full meals and desserts.</p>
+        <p>Visiting the railway station, travelling to Tirumala, or dining with family? Stop by for a comfortable, air-conditioned dining experience with free Wi-Fi.</p>
+        <a class="btn" href="#menu">Discover the menu →</a>
+      </div>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b data-n="100" data-s="%">0</b><span>Pure Vegetarian</span></div>
+      <div class="stat"><b data-n="24">0</b><span>Dishes on the menu</span></div>
+      <div class="stat"><b data-n="99" data-p="₹">0</b><span>Breakfast combo</span></div>
+      <div class="stat"><b data-n="12" data-s="PM">0</b><span>Main meals start</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="tag">Something for every appetite</span>
+    <h2 class="rv">Find your next <i>favourite.</i></h2>
+    <input id="q" class="srch" type="search" placeholder="Search the menu... (dosa, gobi, paneer)" aria-label="Search the menu">
+    <div class="tabs" id="tabs"></div>
+    <p class="cnt" id="cnt"></p>
+    <div class="mgrid">
+      <div class="mimg" id="mimg"></div>
+      <div id="dishes"></div>
+    </div>
+    <p class="note" style="color:#9fb3a5">Prices for some dishes are still being confirmed and are marked “Ask in store”. Taxes may apply. Please call for today’s availability.</p>
+  </div>
+</section>
+
+<section class="combo" id="breakfast">
+  <span class="tag" style="color:#fff">A good morning starts here</span>
+  <div class="big">₹99</div>
+  <h2 style="color:#fff">Breakfast Combo</h2>
+  <p>Idly, vada, poori (2) or masala dosa, pongal, sambar, chutney and veg kurma. Please confirm the day's availability with the restaurant.</p>
+  <a class="btn" href="tel:+918790245669">Enquire Now ↗</a>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <span class="tag">A glimpse of the experience</span>
+    <h2 class="rv">Good food, <i>good company.</i></h2>
+
+<div class="gal rv">
+  <div><img src="images/meal.jpg" alt="Meals and thali" loading="lazy"></div>
+  <div><img src="images/chinese.jpg" alt="Chinese noodles" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=900&q=80'"></div>
+  <div><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80" alt="Vegetable rice" loading="lazy"></div>
+  <div><img src="images/dessert.jpg" alt="Desserts" loading="lazy"></div>
+</div>
+    
+    <p class="note">Food images are illustrative and may not represent the exact dishes served.</p>
+    <div class="rev">
+      <div class="rc rv"><q>Great food, great ambiance, and great service that makes you feel at home.</q><div class="stars">★★★★★</div></div>
+      <div class="rc rv"><q>Good quality food and best place for South Indian food.</q><div class="stars">★★★★★</div></div>
+      <div class="rc rv"><q>They accommodate good food combos. Highly recommend for family and friends!</q><div class="stars">★★★★★</div></div>
+    </div>
+    <p class="note">Feedback excerpts supplied for this website concept.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="rv">
+    <span class="tag">We look forward to welcoming you</span>
+    <h2>Your table, your <i style="color:var(--gold)">time.</i></h2>
+    <div class="ci"><b>📍</b><div><strong>Visit Us</strong><br>19/A, Dr Mahal Rd, Ashok Nagar, Tirupati, Andhra Pradesh 517501<br><small>Opp. TTD 2nd Choultry, near Tirupati Railway Station</small></div></div>
+    <div class="ci"><b>📞</b><div><strong>Call Us</strong><br><a href="tel:+918790245669">87902 45669</a></div></div>
+    <div class="ci"><b>🕐</b><div><strong>Dining Hours</strong><br>Main meals: 12 PM – 9 PM<br><small>Breakfast in the morning. Call to confirm timings.</small></div></div>
+    <div class="acts" style="margin-top:30px;opacity:1;animation:none">
+      <a class="btn" href="https://maps.app.goo.gl/s8iuKxiRdjw8tdww9" target="_blank" rel="noopener">Get Directions ↗</a>
+      <a class="btn o" href="https://wa.me/918790245669?text=Hello%20Sri%20Garuda%20Vihar%2C%20I%20would%20like%20to%20enquire%20about%20dining%2Freservation." target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="cimg rv"><img src="images/rest.jpg" alt="Inside Sri Garuda Vihar restaurant"></div>
+</section>
+
+<footer>© <span id="yr"></span> Sri Garuda Vihar · Pure vegetarian dining in Tirupati.</footer>
+<a class="wa" href="https://wa.me/918790245669" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$("#yr").textContent=new Date().getFullYear();
+
+// preloader
+addEventListener("load",()=>setTimeout(()=>$("#pre").classList.add("go"),1500));
+
+// hero headline: split into rising words
+const h=$("#h1");let i=0;
+h.innerHTML=h.innerHTML.replace(/(<em>.*?<\/em>)|([^<>\s]+)/g,(m,em,w)=>{
+  const d=(1.6+i++*.12)+"s";
+  return `<span class="w"><span style="animation-delay:${d}">${em||w}</span></span> `;
+});
+
+// marquee
+const mt=["Pure Veg","Crispy Dosa","Soft Idly","Full Meals","Hot Poori","Sweet Desserts","Free Wi-Fi","Near Railway Station"].map(t=>`<span>✳ ${t}</span>`).join("");
+$("#mq").innerHTML=mt+mt;
+
+// nav, progress, burger
+addEventListener("scroll",()=>{
+  $("#nav").classList.toggle("sc",scrollY>50);
+  const m=document.documentElement.scrollHeight-innerHeight;
+  $("#bar").style.width=(scrollY/m*100)+"%";
+},{passive:true});
+$("#burger").onclick=()=>$("#links").classList.toggle("open");
+$$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
+
+// cursor glow + plate parallax
+addEventListener("mousemove",e=>{
+  const g=$("#glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px";
+  const p=$("#plate");if(p)p.style.transform=`translate(${(e.clientX/innerWidth-.5)*-24}px,${(e.clientY/innerHeight-.5)*-24}px)`;
+});
+
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add("in");io.unobserve(e.target);
+  e.target.querySelectorAll("[data-n]").forEach(c=>{
+    const n=+c.dataset.n,t0=performance.now();
+    (function f(t){const k=Math.min((t-t0)/1500,1);
+      c.textContent=(c.dataset.p||"")+Math.round(n*(1-Math.pow(1-k,3)))+(c.dataset.s||"");
+      if(k<1)requestAnimationFrame(f)})(t0);
+  });
+}),{threshold:.15});
+$$(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%3)*.1+"s";io.observe(el)});
+
+// 3D tilt on review cards
+$$(".rc").forEach(c=>{
+  c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-6px)`};
+  c.onmouseleave=()=>c.style.transform="";
+});
+
+// golden sparks canvas
+const cv=$("#sparks"),cx=cv.getContext("2d");let P=[];
+function rs(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}
+rs();addEventListener("resize",rs);
+for(let k=0;k<45;k++)P.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2.5+.5,v:Math.random()*.6+.2,a:Math.random()});
+(function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  P.forEach(p=>{p.y-=p.v;p.a+=.02;if(p.y<-5){p.y=cv.height+5;p.x=Math.random()*cv.width}
+    cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fillStyle=`rgba(246,198,83,${.25+Math.abs(Math.sin(p.a))*.6})`;cx.fill()});
+  requestAnimationFrame(loop);
+})();
+
+// MENU DATA  [name, description, price, popular]
+const U="https://images.unsplash.com/photo-";
+const M={
+ "Breakfast Combo":{f:"breakfast",img:"1589301760014-d929f3979dbc",d:[["Breakfast Combo","Idly, vada, poori (2) or masala dosa, pongal, sambar, chutney and veg kurma.","₹99",1],["Idly","Steamed rice cakes served with sambar and chutney."],["Vada","Crisp medu vada with sambar and chutney."],["Poori","Soft pooris served with veg kurma.","",1],["Pongal","Ghee pongal tempered with cumin and pepper."]]},
+ "Dosa":{f:"south-indian",img:"1668236543090-82eba5ee5976",d:[["Dosa","Golden crisp dosa with chutney and sambar."],["Masala Dosa","Crisp dosa filled with spiced potato masala.","",1]]},
+ "Meals & Thali":{f:"meals-thali",img:"1546833999-b9f581a1996d",d:[["Veg Meals","Unlimited style vegetarian meals with rice, curries, sambar, rasam and curd.","",1],["Veg Thali","Complete vegetarian thali with curries, rice, chapati and sweet.","",1],["Chapati","Soft chapati served with curry."]]},
+ "Rice":{f:"rice",img:"1512058564366-18510be2db19",d:[["Fried Rice","Vegetable fried rice tossed with fresh vegetables.","",1],["Jeera Rice","Fragrant basmati rice tempered with cumin."],["Gobi Fried Rice","Fried rice tossed with crisp cauliflower."],["Mushroom Rice","Rice cooked with mushroom and mild spices."],["Paneer Rice","Rice tossed with paneer cubes and spices."]]},
+ "Chinese":{f:"chinese",img:"1585032226651-759b368d7246",d:[["Veg Noodles","Indo-Chinese noodles tossed with vegetables.","",1],["Gobi Noodles","Noodles tossed with crisp cauliflower."],["Gobi 65","Spicy deep-fried cauliflower starter.","",1],["Gobi Chilli","Cauliflower tossed in a spicy chilli sauce."],["Paneer Chilli","Paneer cubes tossed in a spicy chilli sauce.","",1],["Mushroom Chilli","Mushroom tossed in a spicy chilli sauce."]]},
+ "Desserts":{f:"deserts",img:"1488477181946-6428a0291777",d:[["Apricot Delight","Chilled apricot dessert."],["Strawberry Malai","Creamy strawberry malai dessert."],["Fruits Cream","Fresh fruits in sweetened cream."]]}
+};
+let cat="All",qs="",more=false;
+["All",...Object.keys(M)].forEach(k=>{
+  const b=document.createElement("button");b.textContent=k;
+  b.onclick=()=>{cat=k;more=false;show()}
+});
+$("#q").oninput=e=>{qs=e.target.value.trim().toLowerCase();if(qs)cat="All";show()};
+function show(){
+  $$("#tabs button").forEach(b=>b.classList.toggle("on",b.textContent===cat));
+  const f=cat==="All"?"all":M[cat].f,img=cat==="All"?"1546833999-b9f581a1996d":M[cat].img;
+  $("#mimg").innerHTML=`<img src="images/${f}.jpg" alt="${cat} (illustrative)" onerror="this.onerror=null;this.src='${U}${img}?auto=format&fit=crop&w=1000&q=85'">`;
+  let list=[];(cat==="All"?Object.keys(M):[cat]).forEach(k=>M[k].d.forEach(x=>list.push([x[0],x[1],x[2]||"",x[3]||0,k])));
+  if(qs)list=list.filter(x=>(x[0]+" "+x[1]+" "+x[4]).toLowerCase().includes(qs));
+  const total=list.length;
+  if(cat==="All"&&!qs&&!more&&total>6)list=list.slice(0,6);
+  $("#cnt").textContent=total+(total===1?" dish":" dishes");
+  $("#dishes").innerHTML=list.length?list.map((x,i)=>`<div class="dish" style="animation-delay:${Math.min(i,12)*.06}s"><div><h3><span class="vb"></span>${x[0]}${x[3]?' <span class="pop">Popular</span>':''}</h3><p>${x[1]}</p></div><span class="pr">${x[2]||"Ask in store"}</span></div>`).join(""):'<p class="empty">No dishes found. Try another word.</p>';
+  if(cat==="All"&&!qs&&total>6)$("#dishes").insertAdjacentHTML("beforeend",`<button class="morebtn" onclick="more=!more;show()">${more?"Show less ↑":"View all "+total+" dishes ↓"}</button>`);
+}
+show();
+// mobile touch glow + tap ripple
+const gl=$("#glow");let gt;
+function tg(e){const t=e.touches[0];gl.style.left=t.clientX+"px";gl.style.top=t.clientY+"px";gl.style.opacity=1;clearTimeout(gt)}
+addEventListener("touchstart",e=>{tg(e);const r=document.createElement("span");r.className="rip";r.style.left=e.touches[0].clientX+"px";r.style.top=e.touches[0].clientY+"px";document.body.appendChild(r);setTimeout(()=>r.remove(),900)},{passive:true});
+addEventListener("touchmove",tg,{passive:true});
+addEventListener("touchend",()=>{gt=setTimeout(()=>gl.style.opacity=0,700)},{passive:true});
+</script>
+</body>
+</html>

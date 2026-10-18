@@ -50,20 +50,20 @@ nav.sc{background:rgba(15,42,26,.88);backdrop-filter:blur(16px);padding:10px 7%}
 #burger{display:none;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:120px;color:#fff;overflow:hidden;background:url("images/hero2.jpg") center/cover;animation:zoom 24s ease-in-out infinite alternate}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:120px;color:#fff;overflow:hidden;background:url("images/hero.jpg") center/cover,#0f2a1a;animation:zoom 24s ease-in-out infinite alternate}
 @keyframes zoom{to{background-size:118%}}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,24,14,.95),rgba(8,24,14,.6) 60%,rgba(8,24,14,.3))}
 #sparks{position:absolute;inset:0;width:100%;height:100%}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;width:100%}
 .hero h1{font-family:var(--serif);font-size:clamp(46px,7vw,98px);line-height:1.02;font-weight:800;margin:18px 0 24px}
-.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .06em .22em;margin-bottom:-.22em}
 .hero h1 .w span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--gold),var(--s),var(--gold));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 4s linear infinite}
 @keyframes rise{to{transform:none}}
 @keyframes shim{to{background-position:200%}}
 .hero p.d{max-width:520px;color:rgba(255,255,255,.88);font-size:18px;margin-bottom:34px;opacity:0;animation:up 1s 1.4s forwards}
 .acts{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up 1s 1.7s forwards}
-.plate{position:relative;aspect-ratio:1;max-width:420px;margin-left:auto;transition:transform .2s}
+.plate{position:relative;aspect-ratio:1;width:100%;max-width:420px;margin-left:auto;transition:transform .2s}
 .plate .ph{position:absolute;inset:8%;border-radius:50%;overflow:hidden;border:6px solid var(--gold);box-shadow:0 40px 90px rgba(0,0,0,.55);animation:float 6s ease-in-out infinite}
 .plate svg{position:absolute;inset:0;width:100%;height:100%;animation:rot 22s linear infinite}
 .plate text{fill:var(--gold);font-size:11.5px;letter-spacing:4px;font-weight:700}
@@ -102,7 +102,8 @@ nav.sc{background:rgba(15,42,26,.88);backdrop-filter:blur(16px);padding:10px 7%}
 .tabs button{padding:12px 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;font:600 14px var(--sans);cursor:pointer;transition:.3s}
 .tabs button.on,.tabs button:hover{background:var(--s);border-color:var(--s)}
 .mgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
-.mimg{aspect-ratio:4/3;height:auto;border-radius:24px;overflow:hidden;position:sticky;top:100px}
+.mimg{aspect-ratio:auto;height:auto;border-radius:24px;overflow:hidden;position:sticky;top:100px;background:rgba(255,255,255,.05)}
+.mimg img{width:100%!important;height:auto!important;max-height:540px;object-fit:contain!important}
 .mimg img{animation:zin 1s both}
 @keyframes zin{from{transform:scale(1.25);opacity:0}}
 .dish{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 20px;margin-bottom:12px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);opacity:0;animation:slide .6s forwards;transition:.3s}
@@ -148,7 +149,8 @@ nav.sc{background:rgba(15,42,26,.88);backdrop-filter:blur(16px);padding:10px 7%}
 .ci{display:flex;gap:16px;margin-top:22px}
 .ci b{width:46px;height:46px;border-radius:50%;background:var(--s);display:grid;place-items:center;flex:none;font-size:20px}
 .ci small{color:#b9c9be}
-.cimg{height:480px;border-radius:24px 160px 24px 24px;overflow:hidden}
+.cimg{height:auto!important;width:fit-content;max-width:100%;justify-self:center;border-radius:24px;overflow:hidden}
+.cimg img{width:auto!important;height:auto!important;max-width:100%;max-height:440px;object-fit:contain}
 
 footer{background:#081a10;color:#9fb3a5;text-align:center;padding:30px;font-size:13px}
 .wa{position:fixed;right:20px;bottom:20px;z-index:90;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:28px;animation:ring 2.4s infinite}
@@ -164,18 +166,17 @@ section{padding:70px 6%}
 .stats{grid-template-columns:1fr 1fr}.rev{grid-template-columns:1fr}
 .mimg{position:static;height:auto}
 .gal{height:auto;flex-direction:column}.gal div{height:130px;flex:none}.gal div:hover{height:260px;flex:none}
-.about .im{height:340px}.cimg{height:320px}
+.about .im{height:auto}.cimg{height:320px}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.dish{padding:14px 18px;margin-bottom:9px}
+.morebtn{display:block;width:100%;margin-top:6px;padding:14px;border-radius:999px;border:1.5px solid var(--s);background:transparent;color:#fff;font:700 14px var(--sans);cursor:pointer;transition:.3s}
+.morebtn:hover{background:var(--s)}
+@media(hover:none){#glow{opacity:0}}
+.rip{position:fixed;z-index:1;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2px solid var(--gold);pointer-events:none;animation:rip .8s ease-out forwards}
+@keyframes rip{to{transform:scale(8);opacity:0}}
 @media(max-width:860px){
-  .hero{
-    background-size:cover!important;
-    background-position:center!important;
-    background-repeat:no-repeat!important;
-    animation:none!important;
-    min-height:92vh;
-    padding:110px 6% 90px;
-  }
+  .hero{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;animation:none!important;min-height:92vh;padding:110px 6% 90px}
   .hero .wrap{padding:0}
   .hero h1{font-size:clamp(40px,11.5vw,58px);line-height:1.08}
   .hero p.d{font-size:16px;margin-bottom:26px}
@@ -183,14 +184,28 @@ section{padding:70px 6%}
   .acts .btn{text-align:center}
   .plate,.scroll{display:none}
 }
-.mimg{aspect-ratio:auto!important;height:auto!important;background:rgba(255,255,255,.05)}
-.mimg img{width:100%!important;height:auto!important;max-height:540px;object-fit:contain!important}
-.dish{padding:14px 18px;margin-bottom:9px}
-.morebtn{display:block;width:100%;margin-top:6px;padding:14px;border-radius:999px;border:1.5px solid var(--s);background:transparent;color:#fff;font:700 14px var(--sans);cursor:pointer;transition:.3s}
-.morebtn:hover{background:var(--s)}
-@media(hover:none){#glow{opacity:0}}
-.rip{position:fixed;z-index:1;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2px solid var(--gold);pointer-events:none;animation:rip .8s ease-out forwards}
-@keyframes rip{to{transform:scale(8);opacity:0}}
+@media(max-width:860px){
+  .gal div{transition:height .9s cubic-bezier(.2,.7,.2,1)}
+  .gal div.open{height:260px}
+}
+@media(min-width:861px){
+  .plate .ph,.plate svg{display:none}
+  .plate{aspect-ratio:auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:20px}
+  .plate .chip{position:static!important;font-size:15px;padding:14px 22px}
+}
+.cimg{align-self:stretch!important;height:auto!important;min-height:520px!important;width:100%!important;max-width:none!important;justify-self:stretch!important;border-radius:24px 160px 24px 24px!important;overflow:hidden!important}
+.cimg img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important}
+@media(max-width:860px){.cimg{min-height:340px!important;height:340px!important;border-radius:24px 110px 24px 24px!important}}
+.cimg{align-self:center!important;height:auto!important;min-height:420px!important;width:88%!important;max-width:none!important;justify-self:end!important;border-radius:24px 120px 24px 24px!important;overflow:hidden!important}
+.cimg img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important}
+@media(max-width:860px){.cimg{width:100%!important;min-height:300px!important;height:300px!important;justify-self:stretch!important;border-radius:24px 90px 24px 24px!important}}
+.cimg img{object-position:52% 40%!important}
+.cimg{align-self:center!important;width:88%!important;max-width:none!important;justify-self:end!important;height:auto!important;min-height:0!important;border-radius:24px 120px 24px 24px!important;overflow:hidden!important}
+.cimg img{width:100%!important;height:420px!important;max-height:none!important;object-fit:cover!important;object-position:52% 40%!important}
+@media(max-width:860px){
+  .cimg{width:100%!important;justify-self:stretch!important;border-radius:24px 90px 24px 24px!important}
+  .cimg img{height:300px!important}
+}
 </style>
 </head>
 <body>
@@ -231,7 +246,7 @@ section{padding:70px 6%}
 <section id="about">
   <div class="wrap">
     <div class="about rv">
-      <div class="im"><img src="images/our.jpg" alt="Sri Garuda Vihar interior" onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1000&q=85'"></div>
+    <div class="im"><img src="images/our.jpg" alt="Inside Sri Garuda Vihar restaurant"></div>
       <div>
         <span class="tag">Our story</span>
         <h2>A little comfort in every <i>meal.</i></h2>
@@ -276,14 +291,12 @@ section{padding:70px 6%}
   <div class="wrap">
     <span class="tag">A glimpse of the experience</span>
     <h2 class="rv">Good food, <i>good company.</i></h2>
-
-<div class="gal rv">
-  <div><img src="images/meal.jpg" alt="Meals and thali" loading="lazy"></div>
-  <div><img src="images/chinese.jpg" alt="Chinese noodles" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=900&q=80'"></div>
-  <div><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80" alt="Vegetable rice" loading="lazy"></div>
-  <div><img src="images/dessert.jpg" alt="Desserts" loading="lazy"></div>
-</div>
-    
+    <div class="gal rv">
+      <div><img src="images/meal.jpg" alt="Meals and thali" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=900&q=80'"></div>
+      <div><img src="images/chinese.jpg" alt="Chinese noodles" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=900&q=80'"></div>
+      <div><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80" alt="Vegetable rice" loading="lazy"></div>
+      <div><img src="images/dessert.jpg" alt="Desserts" loading="lazy" style="object-position:center 60%" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=80'"></div>
+  </div>
     <p class="note">Food images are illustrative and may not represent the exact dishes served.</p>
     <div class="rev">
       <div class="rc rv"><q>Great food, great ambiance, and great service that makes you feel at home.</q><div class="stars">★★★★★</div></div>
@@ -382,7 +395,7 @@ const U="https://images.unsplash.com/photo-";
 const M={
  "Breakfast Combo":{f:"breakfast",img:"1589301760014-d929f3979dbc",d:[["Breakfast Combo","Idly, vada, poori (2) or masala dosa, pongal, sambar, chutney and veg kurma.","₹99",1],["Idly","Steamed rice cakes served with sambar and chutney."],["Vada","Crisp medu vada with sambar and chutney."],["Poori","Soft pooris served with veg kurma.","",1],["Pongal","Ghee pongal tempered with cumin and pepper."]]},
  "Dosa":{f:"south-indian",img:"1668236543090-82eba5ee5976",d:[["Dosa","Golden crisp dosa with chutney and sambar."],["Masala Dosa","Crisp dosa filled with spiced potato masala.","",1]]},
- "Meals & Thali":{f:"meals-thali",img:"1546833999-b9f581a1996d",d:[["Veg Meals","Unlimited style vegetarian meals with rice, curries, sambar, rasam and curd.","",1],["Veg Thali","Complete vegetarian thali with curries, rice, chapati and sweet.","",1],["Chapati","Soft chapati served with curry."]]},
+  "Meals & Thali":{f:"meal1",img:"1546833999-b9f581a1996d",d:[["Veg Meals","Unlimited style vegetarian meals with rice, curries, sambar, rasam and curd.","",1],["Veg Thali","Complete vegetarian thali with curries, rice, chapati and sweet.","",1],["Chapati","Soft chapati served with curry."]]},
  "Rice":{f:"rice",img:"1512058564366-18510be2db19",d:[["Fried Rice","Vegetable fried rice tossed with fresh vegetables.","",1],["Jeera Rice","Fragrant basmati rice tempered with cumin."],["Gobi Fried Rice","Fried rice tossed with crisp cauliflower."],["Mushroom Rice","Rice cooked with mushroom and mild spices."],["Paneer Rice","Rice tossed with paneer cubes and spices."]]},
  "Chinese":{f:"chinese",img:"1585032226651-759b368d7246",d:[["Veg Noodles","Indo-Chinese noodles tossed with vegetables.","",1],["Gobi Noodles","Noodles tossed with crisp cauliflower."],["Gobi 65","Spicy deep-fried cauliflower starter.","",1],["Gobi Chilli","Cauliflower tossed in a spicy chilli sauce."],["Paneer Chilli","Paneer cubes tossed in a spicy chilli sauce.","",1],["Mushroom Chilli","Mushroom tossed in a spicy chilli sauce."]]},
  "Desserts":{f:"deserts",img:"1488477181946-6428a0291777",d:[["Apricot Delight","Chilled apricot dessert."],["Strawberry Malai","Creamy strawberry malai dessert."],["Fruits Cream","Fresh fruits in sweetened cream."]]}
@@ -390,7 +403,7 @@ const M={
 let cat="All",qs="",more=false;
 ["All",...Object.keys(M)].forEach(k=>{
   const b=document.createElement("button");b.textContent=k;
-  b.onclick=()=>{cat=k;more=false;show()}
+  b.onclick=()=>{cat=k;more=false;show()};$("#tabs").appendChild(b);
 });
 $("#q").oninput=e=>{qs=e.target.value.trim().toLowerCase();if(qs)cat="All";show()};
 function show(){
@@ -412,6 +425,11 @@ function tg(e){const t=e.touches[0];gl.style.left=t.clientX+"px";gl.style.top=t.
 addEventListener("touchstart",e=>{tg(e);const r=document.createElement("span");r.className="rip";r.style.left=e.touches[0].clientX+"px";r.style.top=e.touches[0].clientY+"px";document.body.appendChild(r);setTimeout(()=>r.remove(),900)},{passive:true});
 addEventListener("touchmove",tg,{passive:true});
 addEventListener("touchend",()=>{gt=setTimeout(()=>gl.style.opacity=0,700)},{passive:true});
+// gallery photos open automatically while scrolling (effect shows on phones only)
+const go=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add("open");go.unobserve(e.target)}
+}),{threshold:.6});
+$$(".gal div").forEach(d=>go.observe(d));
 </script>
 </body>
 </html>

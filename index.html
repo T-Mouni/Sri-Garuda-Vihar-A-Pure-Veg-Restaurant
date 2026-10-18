@@ -211,6 +211,11 @@ section{padding:70px 6%}
   .hero .plate .ph,.hero .plate svg{display:none!important}
   .hero .plate .chip{display:inline-block!important;position:static!important;font-size:14px;padding:10px 16px;opacity:1!important}
 }
+.js-anim .pic{opacity:0;transform:translateY(70px) scale(.9);clip-path:inset(0 0 100% 0 round 24px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.8,.2,1),clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+.js-anim .pic.on{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 24px)}
+.pic img{transform:scale(1.3);transition:transform 2s cubic-bezier(.2,.8,.2,1)}
+.pic.on img{transform:scale(1)}
+@media(max-width:860px){.gal div{height:230px!important;flex:none!important}}
 </style>
 </head>
 <body>
@@ -435,6 +440,16 @@ const go=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add("open");go.unobserve(e.target)}
 }),{threshold:.6});
 $$(".gal div").forEach(d=>go.observe(d));
+// scroll animation for all photos
+document.documentElement.classList.add("js-anim");
+const picIO=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add("on");picIO.unobserve(e.target)}
+}),{threshold:.15});
+$$(".gal div,.mimg,.about .im,.cimg").forEach((el,i)=>{
+  el.classList.add("pic");
+  el.style.transitionDelay=(i%4)*.12+"s";
+  picIO.observe(el);
+});
 </script>
 </body>
 </html>
